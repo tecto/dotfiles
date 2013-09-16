@@ -1,12 +1,6 @@
 ## There's no place like ~/
 
-These are my personal [dotfiles][]. They turn ordinary stock applications into
-my own carefully crafted lightsaber.
-
-    {///////\\\\\\\<#>}=============================================
-
-[Yonk][] and I scour the galaxy looking for nanosecond timesavers for all our
-favorite tools. If you've got a tip [let us know][octodots].
+These are my dotfiles. They started as a fork of [pengwynn's dotfiles](https://github.com/pengwynn/dotfiles)
 
 ![screencap][]
 

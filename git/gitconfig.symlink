@@ -1,89 +1,31 @@
 [user]
-  name = Wynn Netherland
-  email = wynn@github.com
-[color]
-  ui = auto
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
-[color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-[color "status"]
-  added = yellow
-  changed = blue
-  untracked = cyan
-[alias]
-  br = branch
-  # show all branches, even across remotes
-  branches = branch -a --color -v
-  # remove all local branches included in the current branch
-  cleanup = !sh -c 'git branch --merged | grep -E "^[^*]" --exclude "^\\s*master" | xargs -n1 git branch -d'
-  co = checkout
-  ctags = !.git/hooks/ctags
-  # Show the diff between the latest commit and the current state
-  d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
-  # `git di $number` shows the diff between the state `$number` revisions ago and the current state
-  di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
-  # Diff
-  df = diff
-  # Get short SHA-1 for object
-  hash = rev-parse --short HEAD
-  lc = log ORIG_HEAD.. --stat --no-merges
-  # just for fun
-  l33t = !"git shortlog | l33t"
-  lol = log --graph --decorate --pretty=oneline --abbrev-commit
-  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-  ls = ls-files
-  # depends on hub
-  mypulls = browse -- pulls/pengwynn
-  # Find FIXME, TODO, etc, optimized by @x3ro https://gist.github.com/3908985
-  n = !"f() { git ls-files $1 | xargs notes | awk -F: '{ print $1,$2; print $3,$4; print $5}' | grcat conf.notes | less -r;  }; f"
-  pullm = !"git pull origin master"
-  pushm = !"git push origin master"
-  rb = rebase
-  rbc = rebase --continue
-  # Interactive rebase with the selected number of latest commits
-  reb = "!r() { git rebase -i HEAD~$1; }; r"tags = tag -l
-  # track a remote branch
-  track = checkout -t
-  st = status
-  # update all submodules
-  subs = submodule foreach git pull origin master
-  # clean up fully merged branches
-  sweep = !git-sweep
-  # remove a file from the index
-  unstage = reset HEAD --
-  up = pull --rebase
-  wdiff = diff --color-words
-
+  name = Mark Shropshire
+  email = marks@knowclassic.com
 [core]
-  excludesfile = /opt/boxen/config/git/gitignore
-  excludesfile = /opt/boxen/config/git/gitignore
-
-[init]
-  templatedir = ~/.git_template
-
-[push]
-  default = upstream
-
-[hub]
-  protocol = https
-
-[branch]
-
+  editor = subl -w
+  excludesfile = ~/.gitignore
 [github]
-  user = pengwynn
-
+  user = shrop
+[url "git@github.com:"]
+  insteadOf = "github:"
+[url "git@github.cgraphics.com:"]
+  insteadOf = "githubcg:"
+[apply]
+  whitespace = nowarn
+[alias]
+  lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
+  create-pull-request = !sh -c 'stash pull-request $0'
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+  tool = Kaleidoscope
 [difftool]
   prompt = false
-
-[diff]
-  tool = vimdiff
-
-# vim: ft=gitconfig
-[credential]
-  helper = /opt/boxen/bin/boxen-git-credential
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+[mergetool]
+  prompt = false
+  keepBackup = true
+[merge]
+  tool = Kaleidoscope
