@@ -3,7 +3,7 @@
   email = marks@knowclassic.com
 [core]
   editor = subl -w
-  excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore_global
 [github]
   user = shrop
 [url "git@github.com:"]

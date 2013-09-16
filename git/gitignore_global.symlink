@@ -24,6 +24,8 @@ pkg
 # per-project scratchpad
 .scratch
 
+tmux*log
+
 # Compiled source #
 ###################
 *.com
