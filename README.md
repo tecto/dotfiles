@@ -2,8 +2,6 @@
 
 These are my dotfiles. They started as a fork of [pengwynn's dotfiles](https://github.com/pengwynn/dotfiles)
 
-![screencap][]
-
 ## Get your own ##
 
 If you're new to dotfiles, this probably isn't the best starter repository for
@@ -63,5 +61,3 @@ found or tips and tricks for your favorite tools.
 [Yonk]: https://twitter.com/adamyonk
 [octodots]: https://twitter.com/octodots
 [holman/dotfiles]: https://github.com/holman/dotfiles
-[screencap]:
-http://cl.ly/image/3k171S3E3k2q/Screen%20Shot%202013-02-07%20at%2011.06.41%20AM.png
