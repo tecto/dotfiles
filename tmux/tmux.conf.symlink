@@ -1,0 +1,80 @@
+set -g default-terminal "screen-256color"
+
+# status bar colors
+set -g status-bg black
+set -g status-fg white
+
+# alignment settings
+set-option -g status-justify centre
+
+# status left options
+set-option -g status-left '#[fg=green][#[bg=black,fg=cyan]Session: #S#[fg=green]]'
+set-option -g status-left-length 20
+
+# window list options
+setw -g automatic-rename on
+set-window-option -g window-status-format '#[fg=cyan,dim]#I#[fg=blue]:#[default]#W#[fg=grey,dim]#F'
+set-window-option -g window-status-current-format '#[bg=blue,fg=cyan,bold]#I#[bg=blue,fg=cyan]:#[fg=colour230]#W#[fg=dim]#F'
+set -g base-index 1
+
+# status right options
+set -g status-right '#[fg=green][#[fg=white]%Y-%m-%d %l:%M:%S]'
+
+# change key binding from C-b to Emacs style C-x
+#set-option -g prefix C-x
+#unbind-key C-b
+#bind-key C-x send-prefix
+
+# interface
+#------------
+# pane
+#------------
+set -g mouse-select-pane on
+set -g pane-border-fg colour136
+set -g pane-active-border-fg colour235
+
+#------------
+# tabs
+#------------
+setw -g window-status-format "#[fg=white]#[bg=2:blue] #I #[bg=blue]#[fg=white] #W "
+setw -g window-status-current-format "#[bg=brightmagenta]#[fg=white] *#I #[fg=white,bold]#[bg=cyan] [#W] "
+setw -g window-status-content-attr bold,blink,reverse
+
+#------------
+# status bar
+#------------
+set-option -g status-position top
+set -g status-fg 
+set -g status-bg blue
+set -g status-left ' [#S]'
+set -g status-right-length 60
+set -g status-right '%Y-%m-%d %l:%M:%S '
+
+### COLOUR - Solarized
+
+# default statusbar colors
+set-option -g status-bg colour235 #base02
+set-option -g status-fg colour136 #yellow
+set-option -g status-attr default
+
+# default window title colors
+set-window-option -g window-status-fg colour244
+set-window-option -g window-status-bg default
+set-window-option -g window-status-attr dim
+
+# active window title colors
+set-window-option -g window-status-current-fg colour166 #orange
+set-window-option -g window-status-current-bg default
+set-window-option -g window-status-current-attr bright
+
+# pane border
+set-option -g pane-border-fg colour235 #base02
+set-option -g pane-active-border-fg colour240 #base01
+
+# message text
+set-option -g message-bg colour235 #base02
+set-option -g message-fg colour166 #orange
+
+# pane number display
+set-option -g display-panes-active-colour colour33 #blue
+set-option -g display-panes-colour colour166 #orange

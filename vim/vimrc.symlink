@@ -111,8 +111,11 @@ filetype plugin on
 filetype indent on
 
 set list listchars=tab:\ \ ,trail:·   " Display tabs and trailing spaces visually
-set nowrap                            " Don't wrap lines
+set wrap                              " Wrap lines
 set linebreak                         " Wrap lines at convenient points
+set nolist
+set textwidth=0
+set wrapmargin=0
 
 " Folds
 " =====
