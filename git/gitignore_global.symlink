@@ -1,5 +1,8 @@
 .DS_Store
 
+# Codekit
+config.codekit
+
 # Thumbnails
 ._*
 
@@ -81,6 +84,8 @@ FirePHPCore
 *.sublime-projectcompletions
 *-ck.js
 .jira-url
+.idea
+*.chproj
 
 #########################
 # .gitignore file for Xcode4 / OS X Source projects
@@ -103,8 +108,9 @@ FirePHPCore
 
 .DS_Store
 *.swp
-*.lock
 profile
+
+.sass-cache
 
 
 ####

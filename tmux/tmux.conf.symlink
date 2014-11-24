@@ -1,80 +1,61 @@
-set -g default-terminal "screen-256color"
+# Start new session.
+new-session
 
-# status bar colors
-set -g status-bg black
-set -g status-fg white
+# Setup Tmux Airline.
+source-file ~/.tmux-airline.conf
 
-# alignment settings
-set-option -g status-justify centre
-
-# status left options
-set-option -g status-left '#[fg=green][#[bg=black,fg=cyan]Session: #S#[fg=green]]'
-set-option -g status-left-length 20
-
-# window list options
-setw -g automatic-rename on
-set-window-option -g window-status-format '#[fg=cyan,dim]#I#[fg=blue]:#[default]#W#[fg=grey,dim]#F'
-set-window-option -g window-status-current-format '#[bg=blue,fg=cyan,bold]#I#[bg=blue,fg=cyan]:#[fg=colour230]#W#[fg=dim]#F'
-set -g base-index 1
-
-# status right options
-set -g status-right '#[fg=green][#[fg=white]%Y-%m-%d %l:%M:%S]'
-
-# change key binding from C-b to Emacs style C-x
-#set-option -g prefix C-x
-#unbind-key C-b
-#bind-key C-x send-prefix
-
-# interface
-#------------
-# pane
-#------------
+# Setup mouse support.
+set -g mode-mouse on
 set -g mouse-select-pane on
-set -g pane-border-fg colour136
-set -g pane-active-border-fg colour235
 
-#------------
-# tabs
-#------------
-setw -g window-status-format "#[fg=white]#[bg=2:blue] #I #[bg=blue]#[fg=white] #W "
-setw -g window-status-current-format "#[bg=brightmagenta]#[fg=white] *#I #[fg=white,bold]#[bg=cyan] [#W] "
-setw -g window-status-content-attr bold,blink,reverse
+# Use vi keys.
+set -gw mode-keys vi
 
-#------------
-# status bar
-#------------
-set-option -g status-position top
-set -g status-fg 
-set -g status-bg blue
-set -g status-left ' [#S]'
-set -g status-right-length 60
-set -g status-right '%Y-%m-%d %l:%M:%S '
+# Setup 'v' to begin selection as in Vim.
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 
-### COLOUR - Solarized
+# Update default binding of `Enter` to also use copy-pipe.
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
 
-# default statusbar colors
-set-option -g status-bg colour235 #base02
-set-option -g status-fg colour136 #yellow
-set-option -g status-attr default
+# Add 256 colour support.
+set -g default-terminal "xterm-256color"
 
-# default window title colors
-set-window-option -g window-status-fg colour244
-set-window-option -g window-status-bg default
-set-window-option -g window-status-attr dim
+# Show activity in background windows.
+setw -g monitor-activity on
 
-# active window title colors
-set-window-option -g window-status-current-fg colour166 #orange
-set-window-option -g window-status-current-bg default
-set-window-option -g window-status-current-attr bright
+# Start window/pane numbers from 1.
+set -g base-index 1
+set -g pane-base-index 1
 
-# pane border
-set-option -g pane-border-fg colour235 #base02
-set-option -g pane-active-border-fg colour240 #base01
+# Set window titles.
+set -g set-titles on
 
-# message text
-set-option -g message-bg colour235 #base02
-set-option -g message-fg colour166 #orange
+# Switching panes.
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
 
-# pane number display
-set-option -g display-panes-active-colour colour33 #blue
-set-option -g display-panes-colour colour166 #orange
+# Resize panes.
+bind-key -r J resize-pane -D 5
+bind-key -r K resize-pane -U 5
+bind-key -r H resize-pane -L 5
+bind-key -r L resize-pane -R 5
+
+# Fixes for ssh-agent.
+set -g update-environment "SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION"
+
+# 1.9 open new panes in $PWD.
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
+
+# Fix LSOpenURLsWithRole() error on OS X. Requires reattach-to-user-namespace to be installed.
+set-option -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL"
+
+# Faster escape sequences (default is 500ms).
+# This helps when exiting insert mode in Vim: http://superuser.com/a/252717/65504.
+set -s escape-time 50i
+

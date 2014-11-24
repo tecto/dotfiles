@@ -1,107 +1,85 @@
-#export PATH=/Users/wynn/.dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-
-# shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
-export DOTFILES=$HOME/.dotfiles
-
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/github
-
-#source /opt/github/env.sh
-
-# source every .zsh file in this rep
-for config_file ($ZSH/**/*.zsh) source $config_file
-
-# use .localrc for SUPER SECRET CRAP that you don't
-# want in your public, versioned repo.
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
-fi
-
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
-
-# quote pasted URLs
-autoload -U url-quote-magic
-zle -N self-insert url-quote-magic
-
-# fun
-autoload -U tetris
-zle -N tetris
-bindkey ^T tetris
-
-# load every completion after autocomplete loads
-for config_file ($ZSH/**/completion.sh) source $config_file
-
-source `brew --prefix grc`/etc/grc.bashrc
-
-# source subs
-#eval "$($DOTFILES/wynn/bin/wynn init -)"
-#eval "$(/Users/wynn/.coral/libexec/coral init -)"
-
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="lukerandall"
+ZSH_THEME="robbyrussell"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-drush-ui() { drush pm-disable -y $@ ; drush pm-uninstall -y $@ }
-alias drush-gc="drush dl --package-handler=git_drupalorg"
-alias drupalcs="phpcs --standard=$HOME/bin/coder/coder_sniffer/Drupal/ruleset.xml --extensions=php,module,inc,install,test,profile,theme"
-alias drs="drush rs --php-cgi=~/bin/php-cgi --watchdog"
-alias logs="multitail -D --mergeall /var/log/apache2/access_log /var/log/apache2/error_log /usr/local/var/log/php_errors.log /usr/local/var/log/xdebug.log /usr/local/var/mysql/shrop-macbookpro.local.err /var/log/system.log"
-alias apt-get="brew"
-alias pip='nocorrect pip'
-alias e='subl . &'
-alias geeknote='python ~/bin/geeknote/geeknote.py'
-alias cdfc='cd ~/Projects/Classic/firstcitizens/www'
-alias cdfd='cd ~/Projects/Classic/familydollar/www'
-alias vi='mvim -v'
-alias vim='mvim -v'
-
-# Set to this to use case-sensitive completion
+# Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Comment this out to disable weekly auto-update checks
+# Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
-# Uncomment following line if you want to disable colors in ls
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
-# Uncomment following line if you want to disable autosetting terminal title.
-DISABLE_AUTO_TITLE="true"
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git sublime jira)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/bin:$HOME/bin/dropstart:$PATH
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-export PATH=$PATH:$HOME/bin/drush
-export NODE_PATH="/usr/local/lib/node_modules"
-export BYOBU_PREFIX=$(brew --prefix)
+# User configuration
 
-export DRUSH_PHP=/usr/local/opt/php53/bin/php
+export PATH=$HOME/bin:$HOME/bin/drush:/usr/local/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
 
-# Add path to homebrew-php binaries
-PATH="$(brew --prefix josegonzalez/php/php53)/bin:$PATH"
-#PATH="$(brew --prefix josegonzalez/php/php54)/bin:$PATH"
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-JIRA_RAPID_BOARD="yes"
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+alias tmux="tmux -2"
+
+# Add path to homebrew-php binaries.
+export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
+
+# rubenv
+eval "$(rbenv init -)"
