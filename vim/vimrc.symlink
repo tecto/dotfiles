@@ -44,6 +44,17 @@ colorscheme monokai
 let g:airline_powerline_fonts=1
 set laststatus=2
 
+" TmuxLine settings.
+let g:tmuxline_preset = {
+  \'a'        : '#S',
+  \'b'        : '#W',
+  \'c'        : '#H',
+  \'win'      : '#I #W',
+  \'cwin'     : '#I #W',
+  \'x'        : '%a',
+  \'y'        : ['%Y-%m-%d', '%r'],
+  \'options'  : {'status-justify' : 'left'}}
+
 " Turn on line numbering.
 set number
 
