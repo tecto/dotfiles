@@ -52,7 +52,7 @@ let g:tmuxline_preset = {
   \'win'      : '#I #W',
   \'cwin'     : '#I #W',
   \'x'        : '%a',
-  \'y'        : ['%Y-%m-%d', '%r'],
+  \'y'        : ['%Y-%m-%d', '%l:%M %p'],
   \'options'  : {'status-justify' : 'left'}}
 
 " Turn on line numbering.
