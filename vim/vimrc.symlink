@@ -52,6 +52,8 @@ let g:tmuxline_preset = {
   \'cwin'     : '#I #W',
   \'y'        : ['%a  %Y-%m-%d', '%l:%M %p'],
   \'options'  : {'status-justify' : 'left'}}
+" Turn on tmuxline tabs.
+let g:airline#extensions#tabline#enabled = 1
 
 " Turn on line numbering.
 set number
