@@ -1,6 +1,6 @@
 [user]
   name = Mark Shropshire
-  email = marks@knowclassic.com
+  email = mdshrops@shropnet.net
 [core]
   excludesfile = ~/.gitignore_global
   filemode = false
