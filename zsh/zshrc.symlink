@@ -79,7 +79,12 @@ export PATH=$HOME/bin:$HOME/bin/drush:/usr/local/bin:$PATH
 alias tmux="tmux -2"
 
 # Add path to homebrew-php binaries.
-export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
+case `uname` in
+    Darwin)
+      export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
+      
+      # rubenv
+      eval "$(rbenv init -)"i
+      ;;
+esac
 
-# rubenv
-eval "$(rbenv init -)"
