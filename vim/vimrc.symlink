@@ -12,6 +12,9 @@ Plugin 'gmarik/Vundle.vim'
 " Colors
 Plugin 'sickill/vim-monokai'
 
+" CtrlP
+Plugin 'kien/ctrlp.vim'
+
 " GitGutter
 Plugin 'airblade/vim-gitgutter'
 
