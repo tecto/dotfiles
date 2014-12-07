@@ -31,6 +31,8 @@ Plugin 'tpope/vim-fugitive'
 " Vim Powerline
 Plugin 'bling/vim-airline'
 
+Plugin 'marijnh/tern_for_vim'
+
 " Tmuxline
 Plugin 'edkolev/tmuxline.vim'
 

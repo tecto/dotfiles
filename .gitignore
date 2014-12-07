@@ -3,6 +3,7 @@
 .netrwhist
 vim/vim.symlink/bundle/ctrlp.vim/
 vim/vim.symlink/bundle/tabular/
+vim/vim.symlink/bundle/tern_for_vim/
 vim/vim.symlink/bundle/tmuxline.vim/
 vim/vim.symlink/bundle/vim-airline/
 vim/vim.symlink/bundle/vim-fugitive/
