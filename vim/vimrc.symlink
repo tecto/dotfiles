@@ -87,6 +87,10 @@ set incsearch
 " Stop distracting your co-workers.
 set visualbell
 
+" Open new splits on to bottom and right.
+set splitbelow
+set splitright
+
 " No .swp files.
 set noswapfile
 
