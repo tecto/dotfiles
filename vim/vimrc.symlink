@@ -31,6 +31,7 @@ Plugin 'tpope/vim-fugitive'
 " Vim Powerline
 Plugin 'bling/vim-airline'
 
+" Tern for VIM
 Plugin 'marijnh/tern_for_vim'
 
 " Tmuxline
@@ -112,4 +113,7 @@ if has("wildmenu")
   set wildmenu
   set wildmode=longest,list
 endif
+
+" Tern settings.
+let g:tern_show_argument_hints = 'on_move'
 
