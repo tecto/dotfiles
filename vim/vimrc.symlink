@@ -119,8 +119,8 @@ if has("wildmenu")
 endif
 
 " Tern settings.
-let tern_show_argument_hints='on_move'
-let tern_show_signature_in_pum=1
+let g:tern_show_argument_hints='on_move'
+let g:tern_show_signature_in_pum=1
 
 " Automatically reload vimrc when it's saved.
 augroup VimrcSo
