@@ -15,6 +15,9 @@ Plugin 'sickill/vim-monokai'
 " CtrlP
 Plugin 'kien/ctrlp.vim'
 
+" JSHint
+Plugin 'Shutnik/jshint2.vim'
+
 " GitGutter
 Plugin 'airblade/vim-gitgutter'
 
@@ -31,11 +34,24 @@ Plugin 'tpope/vim-fugitive'
 " Vim Powerline
 Plugin 'bling/vim-airline'
 
+" SuperTab
+Plugin 'ervandew/supertab'
+
 " Tern for VIM
 Plugin 'marijnh/tern_for_vim'
 
 " Tmuxline
 Plugin 'edkolev/tmuxline.vim'
+
+" Syntax highlighting plugins.
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'elzr/vim-json'
+Plugin 'groenewege/vim-less'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'othree/html5.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-cucumber'
 
 " All Plugins must be added before the following line.
 call vundle#end()
