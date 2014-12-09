@@ -77,6 +77,8 @@ export PATH=$HOME/bin:$HOME/bin/drush:/usr/local/bin:$PATH
 #
 # Example aliases
 alias tmux="tmux -2"
+# Kill all tmux sessions.
+alias kts="tmux kill-server"
 
 # Add path to homebrew-php binaries.
 case `uname` in
