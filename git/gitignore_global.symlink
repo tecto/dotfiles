@@ -1,5 +1,9 @@
 .DS_Store
 
+# Meteor stuff
+mup.json
+settings.json
+
 .tern-project
 
 # Codekit
@@ -70,6 +74,7 @@ Thumbs.db
 # Drupal #
 ##########
 sites/*/settings*.php
+sites/*/services*.yml
 sites/*/files
 sites/*/private
 */sites/*/settings*.php
