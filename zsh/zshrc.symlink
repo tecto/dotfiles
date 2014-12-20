@@ -76,9 +76,15 @@ export PATH=$HOME/bin:$HOME/bin/drush:/usr/local/bin:$PATH
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+
+# This alias is to prevent some OS X related tmux issues (If I remember correctly).
 alias tmux="tmux -2"
+
 # Kill all tmux sessions.
 alias kts="tmux kill-server"
+
+# Alias git as hub.
+alias git=hub
 
 # Add path to homebrew-php binaries.
 case `uname` in
