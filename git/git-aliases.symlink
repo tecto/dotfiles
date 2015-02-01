@@ -1,0 +1,16 @@
+# git aliases
+
+alias gs='hub status '
+alias ga='hub add '
+alias gb='hub branch '
+alias gc='hub commit'
+alias gd='hub diff'
+alias go='hub checkout '
+alias gk='gitk --all&'
+alias gx='gitx --all'
+
+alias got='hub'
+alias get='hub'
+
+# Alias git as hub.
+alias git='hub'

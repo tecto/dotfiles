@@ -1,12 +1,12 @@
 [user]
-  name = Mark Shropshire
-  email = mdshrops@shropnet.net
+  name = Bryan Stalcup
+  email = bryan@bryanstalcup.com
 [core]
   excludesfile = ~/.gitignore_global
   filemode = false
   editor = vim
 [github]
-  user = shrop
+  user = tecto
 [url "git@github.com:"]
   insteadOf = "github:"
 [apply]
